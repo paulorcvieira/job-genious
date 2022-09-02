@@ -58,7 +58,7 @@ def newJob(request):
     job = Job.objects.create(**data)
 
     serializer = JobSerializer(job, many=False)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(['PUT'])
@@ -88,7 +88,7 @@ def updateJob(request, pk):
 
     serializer = JobSerializer(job, many=False)
 
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['DELETE'])
@@ -126,7 +126,7 @@ def getTopicStats(request, topic):
         max_salary=Max('salary')
     )
 
-    return Response(stats)
+    return Response(stats, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -166,7 +166,7 @@ def applyToJob(request, pk):
         'applied': True,
         'job_id': jobApplied.id
     },
-        status=status.HTTP_200_OK
+        status=status.HTTP_201_CREATED
     )
 
 
@@ -180,7 +180,7 @@ def getCurrentUserAppliedJobs(request):
 
     serializer = CandidatesAppliedSerializer(jobs, many=True)
 
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -192,7 +192,7 @@ def isApplied(request, pk):
 
     applied = job.candidatesapplied_set.filter(user=user).exists()
 
-    return Response(applied)
+    return Response(applied, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -204,7 +204,7 @@ def getCurrentUserJobs(request):
     jobs = Job.objects.filter(**args)
     serializer = JobSerializer(jobs, many=True)
 
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -224,4 +224,4 @@ def getCandidatesApplied(request, pk):
 
     serializer = CandidatesAppliedSerializer(candidates, many=True)
 
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
