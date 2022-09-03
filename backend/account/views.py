@@ -22,14 +22,14 @@ def register(request):
             user = User.objects.create(
                 first_name=data['first_name'],
                 last_name=data['last_name'],
-                username=data['email'],
+                username=data['username'],
                 email=data['email'],
                 password=make_password(data['password'])
             )
 
             return Response({
                 'message': 'User registered.'},
-                status=status.HTTP_200_OK
+                status=status.HTTP_201_CREATED
             )
         else:
             return Response({
@@ -59,7 +59,7 @@ def updateUser(request):
 
     user.first_name = data['first_name']
     user.last_name = data['last_name']
-    user.username = data['email']
+    user.username = data['username']
     user.email = data['email']
 
     if data['password'] != '':
