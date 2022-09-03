@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django_filters',
 
     'job.apps.JobConfig',
-    # 'account.apps.AccountConfig'
+    'account.apps.AccountConfig'
 ]
 
 MIDDLEWARE = [
@@ -135,15 +135,15 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER':
         'utils.custom_exception_handler.custom_exception_handler',
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=15),
     'AUTH_HEADER_TYPES': ('Bearer',),
-    # 'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
 }
 
 
