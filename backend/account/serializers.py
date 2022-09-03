@@ -28,6 +28,9 @@ class SignUpSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+
+    resume = serializers.CharField(source='userprofile.resume')
+
     class Meta:
         model = User
         fields = (
