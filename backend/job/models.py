@@ -85,8 +85,6 @@ class Job(models.Model):
             self.address, key=os.environ.get('GEOCODER_API_KEY')
         )
 
-        print(g)
-
         lng = g.lng
         lat = g.lat
 
