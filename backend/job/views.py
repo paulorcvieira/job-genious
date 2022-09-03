@@ -1,5 +1,5 @@
 from django.db.models import Avg, Count, Max, Min
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
@@ -18,7 +18,8 @@ from .serializers import CandidatesAppliedSerializer, JobSerializer
 def getAllJobs(request):
 
     filterset = JobsFilter(
-        request.GET, queryset=Job.objects.all().order_by('id'))
+        request.GET, queryset=Job.objects.all().order_by('id')
+    )
 
     count = filterset.qs.count()
 
