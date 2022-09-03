@@ -217,7 +217,7 @@ def getCandidatesApplied(request, pk):
 
     if job.user != user:
         return Response(
-            {'error': 'You can not acces this job'},
+            {'error': 'You can not access this job'},
             status=status.HTTP_403_FORBIDDEN
         )
 
