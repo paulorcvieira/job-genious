@@ -34,8 +34,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG') == 'True'
 # DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = [
     'https://jobgenious.paulorcvieira.vercel.app',
+=======
+public_endpoint_backend = os.environ.get('PUBLIC_URL_BACKEND')
+
+ALLOWED_HOSTS = [
+    public_endpoint_backend,
+>>>>>>> f780aaf (chore: Separated frontend and backend in branchs)
     'localhost',
     '127.0.0.1',
 ]
@@ -112,7 +119,7 @@ DATABASES = {
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+DATABASES['default']['ENGINE'] = os.environ.get('DATABASE_ENGINE')
 
 
 # Password validation
@@ -163,8 +170,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+public_endpoint_frontend = os.environ.get('PUBLIC_URL_FRONTEND')
+
 CORS_ALLOWED_ORIGINS = [
-    'https://jobgenious.paulorcvieira.vercel.app',
+    public_endpoint_frontend,
     'http://localhost:3000',
     'http://127.0.0.1:3000'
 ]
@@ -175,7 +184,6 @@ CORS_ALLOWED_ORIGINS = [
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = 'static/'
