@@ -1,7 +1,0 @@
-.DS_Store
-backend/db.sqlite3
-backend/config/.env
-backend/static/*
-!backend/static/.gitkeep
-backend/commands.txt
-backend/**/__pycache__
