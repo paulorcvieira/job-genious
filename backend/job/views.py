@@ -32,6 +32,7 @@ def getAllJobs(request):
     queryset = paginator.paginate_queryset(filterset.qs, request)
 
     serializer = JobSerializer(queryset, many=True)
+
     return Response({
         "count": count,
         "resPerPage": resPerPage,
@@ -59,6 +60,7 @@ def newJob(request):
     job = Job.objects.create(**data)
 
     serializer = JobSerializer(job, many=False)
+
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 

@@ -10,14 +10,11 @@ urlpatterns = [
     path('jobs/<str:pk>/check', views.isApplied, name='is_applied_to_job'),
     path('jobs/<str:pk>/update', views.updateJob, name='update_job'),
     path('jobs/<str:pk>/delete', views.deleteJob, name='delete_job'),
-
     path(
-        'job/<str:pk>/candidates',
+        'jobs/<str:pk>/candidates',
         views.getCandidatesApplied,
         name='get_candidates_applied'
     ),
-
-    path('stats/<str:topic>', views.getTopicStats, name='get_topic_stats'),
 
     path(
         'me/jobs/applied',
@@ -25,4 +22,6 @@ urlpatterns = [
         name='current_user_applied_jobs'
     ),
     path('me/jobs', views.getCurrentUserJobs, name='current_user_jobs'),
+
+    path('stats/<str:topic>', views.getTopicStats, name='get_topic_stats'),
 ]
