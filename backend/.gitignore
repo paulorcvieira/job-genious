@@ -1,0 +1,8 @@
+.DS_Store
+db.sqlite3
+config/.env
+static/*
+!static/.gitkeep
+commands.txt
+**/__pycache__
+envs.sh
