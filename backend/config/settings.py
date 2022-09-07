@@ -34,15 +34,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG') == 'True'
 # DEBUG = False
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = [
-    'https://jobgenious.paulorcvieira.vercel.app',
-=======
 public_endpoint_backend = os.environ.get('PUBLIC_URL_BACKEND')
 
 ALLOWED_HOSTS = [
     public_endpoint_backend,
->>>>>>> f780aaf (chore: Separated frontend and backend in branchs)
     'localhost',
     '127.0.0.1',
 ]

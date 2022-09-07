@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-web: gunicorn backend.wsgi --log-file -
-=======
 web: gunicorn config.wsgi --log-file -
->>>>>>> f780aaf (chore: Separated frontend and backend in branchs)
